@@ -33,7 +33,7 @@ def contar_fotos_por_pose(pasta_fotos, nomes_poses):
     return contagem
 
 
-def contar_fotos_alunos(pasta_alunos, alunos, nomes_poses):
+def contar_fotos_alunos(pasta_alunos, alunos, nomes_poses, pasta_poses):
     contagem_alunos = {}
     for aluno in alunos["Nome"]:  # Assume que a coluna com os nomes se chama "Nome"
         caminho_aluno = os.path.join(pasta_alunos, aluno)
@@ -49,7 +49,7 @@ def contar_fotos_alunos(pasta_alunos, alunos, nomes_poses):
             for foto in fotos_aluno:
                 for pose in nomes_poses:
                     caminho_pose = os.path.join(
-                        pasta_fotos, pose
+                        pasta_poses, pose
                     )  # Caminho da pasta da pose
                     if os.path.exists(caminho_pose) and foto in os.listdir(
                         caminho_pose
